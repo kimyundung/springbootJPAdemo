@@ -10,8 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/boot")
 public class TestController {
@@ -30,6 +28,11 @@ public class TestController {
         return one;
     }
 
+    /**
+     * 添加&更新
+     * @param test
+     * @return
+     */
     @PostMapping("test")
     public String addNewTest(@RequestBody Test test){
         Test save = testRepository.save(test);
@@ -37,23 +40,16 @@ public class TestController {
         return "success";
     }
 
+    /**
+     * 分页查询
+     * @param request
+     * @return
+     */
     @GetMapping("/tests")
     public Page<Test> getTests(Pageable request){
         Page<Test> all = testRepository.findAll(request);
         System.out.println(all);
         return all;
-    }
-
-    @Autowired
-    private Test2Repository test2Repository;
-
-    // consumes 加不加没看出区别
-    @PostMapping(path = "test2",consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public Test2 addNewTest2(@RequestBody Test2 test2){
-        System.out.println(test2);
-        Test2 save = test2Repository.save(test2);
-        System.out.println(save);
-        return save;
     }
 
 }
