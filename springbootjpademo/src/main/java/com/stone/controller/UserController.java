@@ -60,4 +60,17 @@ public class UserController {
         List<User> userList = userService.findByEmail(email);
         return userList;
     }
+
+    /**
+     * 根据ID查询
+     * @param id
+     * @return
+     */
+    @GetMapping("/getOne/{id}")
+    public User getOne(@PathVariable Long id){
+        System.out.println("id = " + id);
+        User user = userService.getOne(id);
+        System.out.println(user);
+        return user;
+    }
 }

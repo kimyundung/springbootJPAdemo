@@ -31,4 +31,11 @@ public interface UserService {
      * @return
      */
     public List<User> findByEmail(String email);
+
+    /**
+     * 根据ID查询
+     * @param id
+     * @return
+     */
+    public User getOne(Long id);
 }

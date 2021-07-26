@@ -50,4 +50,14 @@ public class UserServiceImpl implements UserService{
     public List<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
+    /**
+     * 根据ID查询
+     * @param id
+     * @return
+     */
+    @Override
+    public User getOne(Long id) {
+        return userRepository.getOne(id);
+    }
 }
