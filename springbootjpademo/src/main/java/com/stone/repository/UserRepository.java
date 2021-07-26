@@ -1,10 +1,11 @@
-package com.stone.example;
+package com.stone.repository;
 
-import org.springframework.data.repository.Repository;
+import com.stone.entity.User;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface UserRepository extends Repository<User,Integer> {
+public interface UserRepository extends CrudRepository<User,Integer> {
     /**
      * 根据名称进行查询用户列表
      * @param name
@@ -15,8 +16,7 @@ public interface UserRepository extends Repository<User,Integer> {
     /**
      * 根据邮箱和名称查询用户列表
      * @param email
-     * @param name
      * @return
      */
-    List<User> findByEmailAndName(String email, String name);
+    List<User> findByEmail(String email);
 }

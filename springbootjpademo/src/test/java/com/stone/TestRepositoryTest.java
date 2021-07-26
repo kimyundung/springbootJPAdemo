@@ -1,6 +1,6 @@
 package com.stone;
 
-import com.stone.example.TestRepository;
+import com.stone.repository.TestRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +17,9 @@ public class TestRepositoryTest {
 
     @Test
     public void testSaveTest(){
-        com.stone.example.Test test = testRepository.save(com.stone.example.Test.builder().name("stone10").email("stone10@stone.com").build());
+        com.stone.entity.Test test = testRepository.save(com.stone.entity.Test.builder().name("stone10").email("stone10@stone.com").build());
         Assert.assertNotNull(test);
-        List<com.stone.example.Test> all = testRepository.findAll();
+        List<com.stone.entity.Test> all = testRepository.findAll();
         System.out.println(all);
         Assert.assertNotNull(test);
     }

@@ -1,8 +1,6 @@
-package com.stone.example;
+package com.stone.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,16 +9,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
-public class Test {
+@Entity
+//@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
+public class Test2 {
+    // test gist
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String email;
+    private String nickName;
 }

@@ -1,7 +1,7 @@
-package com.stone.example;
+package com.stone.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,13 +13,12 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
-//@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
-public class Test2 {
-    // test gist
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String nickName;
+    private String email;
 }

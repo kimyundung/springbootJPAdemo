@@ -1,7 +1,7 @@
 package com.stone.controller;
 
-import com.stone.example.Test2;
-import com.stone.example.Test2Repository;
+import com.stone.entity.Test2;
+import com.stone.repository.Test2Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

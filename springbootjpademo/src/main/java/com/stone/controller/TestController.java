@@ -1,13 +1,10 @@
 package com.stone.controller;
 
-import com.stone.example.Test;
-import com.stone.example.Test2;
-import com.stone.example.Test2Repository;
-import com.stone.example.TestRepository;
+import com.stone.entity.Test;
+import com.stone.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
