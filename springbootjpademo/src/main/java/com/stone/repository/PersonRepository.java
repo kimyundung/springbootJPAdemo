@@ -59,5 +59,18 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
     //根据分页参数返回一个List对象（方法四）
     List<Person> findByEmailAddress(String emailAddress, Pageable pageable);
 
+    // First Top 限制查询结果
+
+    Person findFirstByOrderByLastnameAsc();
+
+    Person findTopByOrderByIdAsc();
+
+    List<Person> findDistinctPersonTop3ByLastname(String lastname, Pageable pageable);  //Top3无效
+    List<Person> findDistinctTop3ByLastname(String lastname, Pageable pageable);        //Top3有效
+
+    List<Person> findFirst5ByLastname(String lastname, Sort sort);
+
+    List<Person> findTop5ByLastname(String lastname, Pageable pageable);
+
 
 }

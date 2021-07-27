@@ -97,15 +97,46 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     public List<Person> findByLastname(String lastname, Sort sort) {
-        //System.out.println("sort = " + sort);
-        //System.out.println("lastname = " + lastname);
-        List<Person> personList = personRepository.findByLastname(lastname, sort);
-        return personList;
+        return personRepository.findByLastname(lastname, sort);
     }
 
     @Override
     public List<Person> findByEmailAddress(String emailAddress, Pageable pageable) {
         return personRepository.findByEmailAddress(emailAddress, pageable);
+    }
+
+    // First Top
+
+    @Override
+    public Person findFirstByOrderByLastnameAsc() {
+        return personRepository.findFirstByOrderByLastnameAsc();
+    }
+
+    @Override
+    public Person findTopByOrderByIdAsc() {
+        return personRepository.findTopByOrderByIdAsc();
+    }
+
+    @Override
+    public List<Person> findDistinctPersonTop3ByLastname(String lastname, Pageable pageable) {
+        System.out.println("pageable = " + pageable);
+        return personRepository.findDistinctPersonTop3ByLastname(lastname,pageable);
+    }
+
+    @Override
+    public List<Person> findDistinctTop3ByLastname(String lastname, Pageable pageable) {
+        System.out.println("pageable = " + pageable);
+        return personRepository.findDistinctTop3ByLastname(lastname, pageable);
+    }
+
+    @Override
+    public List<Person> findFirst5ByLastname(String lastname, Sort sort) {
+        return personRepository.findFirst5ByLastname(lastname,sort);
+    }
+
+    @Override
+    public List<Person> findTop5ByLastname(String lastname, Pageable pageable) {
+        return personRepository.findTop5ByLastname(lastname,pageable);
     }
 
 }

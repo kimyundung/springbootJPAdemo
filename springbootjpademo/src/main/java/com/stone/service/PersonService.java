@@ -41,4 +41,15 @@ public interface PersonService {
     List<Person> findByLastname(String lastname, Sort sort);
 
     List<Person> findByEmailAddress(String emailAddress, Pageable pageable);
+
+    Person findFirstByOrderByLastnameAsc();
+
+    Person findTopByOrderByIdAsc();
+
+    List<Person> findDistinctPersonTop3ByLastname(String lastname, Pageable pageable);
+    List<Person> findDistinctTop3ByLastname(String lastname, Pageable pageable);
+
+    List<Person> findFirst5ByLastname(String lastname, Sort sort);
+
+    List<Person> findTop5ByLastname(String lastname, Pageable pageable);
 }
