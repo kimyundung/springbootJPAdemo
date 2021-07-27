@@ -31,6 +31,7 @@ public class PersonController {
      */
     @GetMapping("/findAll")
     public List<Person> findAll(){
+
         return personService.findAll();
     }
 

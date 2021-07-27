@@ -3,10 +3,8 @@ package com.stone.service;
 import com.stone.entity.Person;
 import com.stone.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
+import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +24,11 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     public List<Person> findAll() {
-         return personRepository.findAll();
+        Streamable<Person> personStreamable = personRepository.findAll(PageRequest.of(0, 3)).and(Person.builder().firstname("kim").build());
+        System.out.println("personStreamable = " + personStreamable.toList());
+        List<Person> personList = personStreamable.toList();
+        return personList;
+//        return personRepository.findAll();
     }
 
     @Override

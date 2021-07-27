@@ -6,14 +6,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.lang.NonNull;
 
 import java.util.List;
 
 public interface PersonRepository extends JpaRepository<Person,Long> {
 
     //find
-
     //and 默认有忽略大小写功能
     List<Person> findByEmailAddressAndLastname(String emailAddress, String lastname);
 
@@ -35,8 +33,8 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
     //对查询结果根据 firstname 排序，倒序
     List<Person> findByLastnameOrderByFirstnameDesc(String lastname);
 
-    //count delete remove
 
+    //count delete remove
     //查询总数
     long countByLastname(String lastname);
 
@@ -46,8 +44,8 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
     //根据Lastname删除一堆Person,并返回删除的Person
     List<Person> removeByLastname(String lastname);
 
-    //分页 排序
 
+    //分页 排序
     //根据分页参数查询Person，返回一个带分页结果的Page对象（方法一）
     Page<Person> findByLastname(String lastname, Pageable pageable);
 
@@ -60,8 +58,8 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
     //根据分页参数返回一个List对象（方法四）
     List<Person> findByEmailAddress(String emailAddress, Pageable pageable);
 
-    // First Top 限制查询结果
 
+    // First Top 限制查询结果
     Person findFirstByOrderByLastnameAsc();
 
     Person findTopByOrderByIdAsc();
@@ -72,6 +70,7 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
     List<Person> findFirst5ByLastname(String lastname, Sort sort);
 
     List<Person> findTop5ByLastname(String lastname, Pageable pageable);
+
 
     // @NonNullApi @NonNull @Nullable
     List<Person> getByEmailAddress(String emailAddress);
