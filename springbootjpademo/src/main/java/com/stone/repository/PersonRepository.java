@@ -1,6 +1,10 @@
 package com.stone.repository;
 
 import com.stone.entity.Person;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -40,5 +44,20 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
 
     //根据Lastname删除一堆Person,并返回删除的Person
     List<Person> removeByLastname(String lastname);
+
+    //分页 排序
+
+    //根据分页参数查询Person，返回一个带分页结果的Page对象（方法一）
+    Page<Person> findByLastname(String lastname, Pageable pageable);
+
+    //根据分页参数返回一个Slice的Person结果（方法二）
+    Slice<Person> findByFirstname(String firstname, Pageable pageable);
+
+    //根据排序结果返回一个List（方法三）
+    List<Person> findByLastname(String lastname, Sort sort);
+
+    //根据分页参数返回一个List对象（方法四）
+    List<Person> findByEmailAddress(String emailAddress, Pageable pageable);
+
 
 }

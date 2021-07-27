@@ -1,6 +1,11 @@
 package com.stone.service;
 
 import com.stone.entity.Person;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
+
 import java.util.List;
 
 public interface PersonService {
@@ -28,4 +33,12 @@ public interface PersonService {
     long deleteByLastname(String lastname);
 
     List<Person> removeByLastname(String lastname);
+
+    Page<Person> findByLastname(String lastname, Pageable pageable);
+
+    Slice<Person> findByFirstname(String firstname, Pageable pageable);
+
+    List<Person> findByLastname(String lastname, Sort sort);
+
+    List<Person> findByEmailAddress(String emailAddress, Pageable pageable);
 }

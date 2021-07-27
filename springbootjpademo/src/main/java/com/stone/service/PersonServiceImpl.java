@@ -3,6 +3,10 @@ package com.stone.service;
 import com.stone.entity.Person;
 import com.stone.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +16,8 @@ import java.util.List;
 public class PersonServiceImpl implements PersonService{
     @Autowired
     private PersonRepository personRepository;
+
+    // find
 
     @Override
     public Person save(Person person) {
@@ -58,6 +64,8 @@ public class PersonServiceImpl implements PersonService{
         return personRepository.findByLastnameOrderByFirstnameDesc(lastname);
     }
 
+    // count delete remove
+
     @Override
     public long countByLastname(String lastname) {
         return personRepository.countByLastname(lastname);
@@ -73,6 +81,31 @@ public class PersonServiceImpl implements PersonService{
     @Transactional
     public List<Person> removeByLastname(String lastname) {
         return personRepository.removeByLastname(lastname);
+    }
+
+    // Sort Pageable
+
+    @Override
+    public Page<Person> findByLastname(String lastname, Pageable pageable) {
+        return personRepository.findByLastname(lastname, pageable);
+    }
+
+    @Override
+    public Slice<Person> findByFirstname(String firstname, Pageable pageable) {
+        return personRepository.findByFirstname(firstname,pageable);
+    }
+
+    @Override
+    public List<Person> findByLastname(String lastname, Sort sort) {
+        //System.out.println("sort = " + sort);
+        //System.out.println("lastname = " + lastname);
+        List<Person> personList = personRepository.findByLastname(lastname, sort);
+        return personList;
+    }
+
+    @Override
+    public List<Person> findByEmailAddress(String emailAddress, Pageable pageable) {
+        return personRepository.findByEmailAddress(emailAddress, pageable);
     }
 
 }

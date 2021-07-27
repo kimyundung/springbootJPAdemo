@@ -3,11 +3,12 @@ package com.stone.controller;
 import com.stone.entity.Person;
 import com.stone.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.RollbackException;
-import javax.transaction.Transactional;
-import java.beans.Expression;
 import java.util.List;
 
 @RestController
@@ -117,6 +118,8 @@ public class PersonController {
         return personList;
     }
 
+    // count delete remove
+
     /**
      * 根据名字查询个数
      * @param lastname
@@ -147,6 +150,37 @@ public class PersonController {
     @DeleteMapping("/removeByLastname")
     public List<Person> removeByLastname(String lastname){
         List<Person> personList = personService.removeByLastname(lastname);
+        return personList;
+    }
+
+    // Sort Pageable
+
+    @GetMapping("/findByLastnamePage")
+    public Page<Person> findByLastnamePage(String lastname){
+        //System.out.println("lastname = " + lastname);
+        Page<Person> personPage = personService.findByLastname(lastname, PageRequest.of(0, 20));
+        //System.out.println("personPage = " + personPage);
+        return personPage;
+    }
+
+
+    @GetMapping("/findByFirstnameSlice")
+    public Slice<Person> findByFirstname(String firstname){
+        Slice<Person> personSlice = personService.findByFirstname(firstname, PageRequest.of(0, 20));
+        return personSlice;
+    }
+
+
+    @GetMapping("/findByLastnameSort")
+    public List<Person> findByLastnameList(String lastname){
+        List<Person> personList = personService.findByLastname(lastname, Sort.by(Sort.Direction.ASC,"firstname"));
+        return personList;
+    }
+
+
+    @GetMapping("/findByEmailAddressPage")
+    public List<Person> findByEmailAddress(String emailAddress){
+        List<Person> personList = personService.findByEmailAddress(emailAddress, PageRequest.of(0, 100, Sort.Direction.ASC, "firstname"));
         return personList;
     }
 }
