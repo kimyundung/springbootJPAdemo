@@ -52,4 +52,6 @@ public interface PersonService {
     List<Person> findFirst5ByLastname(String lastname, Sort sort);
 
     List<Person> findTop5ByLastname(String lastname, Pageable pageable);
+
+    List<Person> getByEmailAddress(String emailAddress);
 }

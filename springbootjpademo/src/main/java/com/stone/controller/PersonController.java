@@ -4,6 +4,7 @@ import com.stone.entity.Person;
 import com.stone.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -198,4 +199,11 @@ public class PersonController {
         return personService.findTop5ByLastname(lastname, PageRequest.of(0,10,Sort.Direction.ASC, "firstname"));
     }
 
+    @GetMapping("/getByEmailAddress")
+    public List<Person> getByEmailAddress(String emailAddress){
+        System.out.println("emailAddress = " + emailAddress);
+        List<Person> personList = personService.getByEmailAddress(emailAddress);
+        System.out.println("personList = " + personList);
+        return personList;
+    }
 }

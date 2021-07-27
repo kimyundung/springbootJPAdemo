@@ -139,4 +139,9 @@ public class PersonServiceImpl implements PersonService{
         return personRepository.findTop5ByLastname(lastname,pageable);
     }
 
+    @Override
+    public List<Person> getByEmailAddress(String emailAddress) {
+        return personRepository.getByEmailAddress(emailAddress);
+    }
+
 }
