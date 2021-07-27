@@ -6,8 +6,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public interface PersonRepository extends JpaRepository<Person,Long> {
 
@@ -74,5 +76,15 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
 
     // @NonNullApi @NonNull @Nullable
     List<Person> getByEmailAddress(String emailAddress);
+
+
+    // List/Stream/Page/Slice  ->  test测试
+    //自定义一个查询方法，返回Stream对象，并且有分页属性
+    @Query("select p from Person p")
+    Stream<Person> findAllByCustomQueryAndStream(Pageable pageable);
+
+    //测试Slice的返回结果
+    @Query("select p from Person p")
+    Slice<Person> findAllByCustomQueryAndSlice(Pageable pageable);
 
 }

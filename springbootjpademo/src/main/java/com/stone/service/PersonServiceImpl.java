@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class PersonServiceImpl implements PersonService{
@@ -24,11 +25,13 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     public List<Person> findAll() {
-        Streamable<Person> personStreamable = personRepository.findAll(PageRequest.of(0, 3)).and(Person.builder().firstname("kim").build());
-        System.out.println("personStreamable = " + personStreamable.toList());
-        List<Person> personList = personStreamable.toList();
-        return personList;
-//        return personRepository.findAll();
+        // Streamable
+//        Streamable<Person> personStreamable = personRepository.findAll(PageRequest.of(0, 3)).and(Person.builder().firstname("kim").build());
+//        System.out.println("personStreamable = " + personStreamable.toList());
+//        List<Person> personList = personStreamable.toList();
+//        return personList;
+        // List<Person>
+        return personRepository.findAll();
     }
 
     @Override

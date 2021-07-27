@@ -7,6 +7,7 @@ import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public interface PersonService {
 
@@ -54,4 +55,5 @@ public interface PersonService {
     List<Person> findTop5ByLastname(String lastname, Pageable pageable);
 
     List<Person> getByEmailAddress(String emailAddress);
+
 }
