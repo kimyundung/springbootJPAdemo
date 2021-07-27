@@ -1,11 +1,12 @@
 package com.stone.repository;
 
 import com.stone.entity.User;
-import org.springframework.data.repository.CrudRepository;
+import com.stone.entity.UserOnlyNameEmailDto;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface UserRepository extends MyBaseRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
     /**
      * 根据名称进行查询用户列表
      * @param name
@@ -19,4 +20,5 @@ public interface UserRepository extends MyBaseRepository<User,Long> {
      * @return
      */
     List<User> findByEmail(String email);
+
 }
