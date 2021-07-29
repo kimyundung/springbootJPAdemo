@@ -8,5 +8,5 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class UserDto {
-    String name,email;
+    String name,email,idCard;
 }
