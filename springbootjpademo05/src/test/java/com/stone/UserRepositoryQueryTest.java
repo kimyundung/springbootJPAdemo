@@ -104,4 +104,10 @@ public class UserRepositoryQueryTest {
         List<User> userList = userRepository.findTop2ByNameOrEmail("stone", "stone");
         System.out.println(userList);
     }
+
+    @Test
+    public void test8 () {
+        // Dynamic query test
+
+    }
 }
