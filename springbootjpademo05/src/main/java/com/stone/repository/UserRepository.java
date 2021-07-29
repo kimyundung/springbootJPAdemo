@@ -68,16 +68,16 @@ public interface UserRepository extends JpaRepository<User,Long> {
     List<Object[]> findByAsArrayAndSort(String name,Sort sort);
 
     /**
-     * 案例 7
      * Query 的分页
+     * 案例 7
      * 直接用 Page 对象接受接口, 参数直接用 Pageable 的实现类即可.
      */
     @Query(value = "select u from User u where u.name = ?1")
     Page<User> findByName (String name, Pageable pageable);
 
     /**
-     * 案例 8
      * Query 的分页
+     * 案例 8
      * @Query 对原生 SQL 的分页支持, 并不是特别友好, 因为这种写法比较"hacker", 可能随着版本的不同有所变化
      * 这里需要注意：这个注释 / #pageable# / 必须有
      */
@@ -85,4 +85,33 @@ public interface UserRepository extends JpaRepository<User,Long> {
             countQuery = "select count(*) from user where name like %?%1",
             nativeQuery = true)
     Page<User> findByNameLike(String name, Pageable pageable);
+
+    /**
+     * @Param 用法
+     * 案例 9
+     * 根据 name 或 email 参数查询 user 对象
+     */
+    @Query("select u from User u where u.name = :name or u.email like %:email%")
+    List<User> findByNameOrEmail(@Param("name") String name, @Param("email") String email);
+
+    /**
+     * @Param 用法
+     * 案例 10
+     * 根据参数进行查询, top10前面说的"query method"关键字照样有用
+     */
+    @Query("select u from User u where u.name = :name or u.email like %:email%")
+    List<User> findTop2ByNameOrEmail(@Param("name") String name, @Param("email") String email);
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

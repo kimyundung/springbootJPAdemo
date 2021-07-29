@@ -88,71 +88,20 @@ public class UserRepositoryQueryTest {
         // 案例 8
         Page<User> userPage = userRepository.findByNameLike("stone", PageRequest.of(1, 2));
         System.out.println(ob.writeValueAsString(userPage));
-        /* ????????????????????????????????
-        {
-            "content": [
-                {
-                    "id": 32,
-                    "name": "stoneUpdate2",
-                    "email": "stone@stone",
-                    "sex": null,
-                    "address": null
-                },
-                {
-                    "id": 33,
-                    "name": "stone2",
-                    "email": "stone2@stone",
-                    "sex": null,
-                    "address": "shanghai"
-                },
-                {
-                    "id": 34,
-                    "name": "stone",
-                    "email": "stone@stone",
-                    "sex": null,
-                    "address": null
-                },
-                {
-                    "id": 54,
-                    "name": "stone",
-                    "email": "stone@stone",
-                    "sex": "women",
-                    "address": "yancheng"
-                },
-                {
-                    "id": 56,
-                    "name": "stone",
-                    "email": "stone3@stone",
-                    "sex": "man",
-                    "address": "yancheng"
-                }
-            ],
-            "pageable": {
-                "sort": {
-                    "unsorted": true,
-                    "sorted": false,
-                    "empty": true
-                },
-                "offset": 2,
-                "pageNumber": 1,
-                "pageSize": 2,
-                "paged": true,
-                "unpaged": false
-            },
-            "last": false,
-            "totalElements": 5,
-            "totalPages": 3,
-            "size": 2,
-            "number": 1,
-            "sort": {
-                "unsorted": true,
-                "sorted": false,
-                "empty": true
-            },
-            "first": false,
-            "numberOfElements": 5,
-            "empty": false
-        }
-        */
+        /* ???????????????????????????????? 全部查询出来了 */
+    }
+
+    @Test
+    public void test6(){
+        // 案例 9
+        List<User> userList = userRepository.findByNameOrEmail("stone", "stone");
+        System.out.println(userList);
+    }
+
+    @Test
+    public void test7() {
+        // 案例 10
+        List<User> userList = userRepository.findTop2ByNameOrEmail("stone", "stone");
+        System.out.println(userList);
     }
 }
