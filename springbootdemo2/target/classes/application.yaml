@@ -1,0 +1,25 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    password: 342407hong
+    username: root
+
+person:
+  id: 1000
+  name: stone
+  hobby:
+    - movie
+    - tiktok
+  family:
+    - brother
+    - pet
+  map:
+    k1: v1
+    k2: v2
+  pet:
+    type: Golden Hair
+    name: nana
