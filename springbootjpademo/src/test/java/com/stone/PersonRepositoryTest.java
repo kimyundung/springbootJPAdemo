@@ -10,7 +10,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 @DataJpaTest
@@ -50,5 +52,14 @@ public class PersonRepositoryTest {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+    }
+
+    // 静态排序 动态排序 (生成的SQL语句相同)
+    @Test
+    public void testSort(){
+//        List<Person> personList = personRepository.findByLastname("stone", Sort.by(Sort.Direction.ASC, "firstname"));
+//        System.out.println(personList);
+        List<Person> personList1 = personRepository.findByLastnameOrderByFirstnameAsc("stone");
+        System.out.println(personList1);
     }
 }
