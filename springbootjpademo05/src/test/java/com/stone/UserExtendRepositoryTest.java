@@ -2,7 +2,6 @@ package com.stone;
 
 import com.stone.dto.UserDto;
 import com.stone.dto.UserSimpleDto;
-import com.stone.entity.UserExtend;
 import com.stone.repository.UserDtoRepository;
 import com.stone.repository.UserExtendRepository;
 import com.stone.repository.UserRepository;
@@ -11,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
