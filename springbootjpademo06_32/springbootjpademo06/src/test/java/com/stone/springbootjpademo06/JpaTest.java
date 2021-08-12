@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.Optional;
+
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class JpaTest {
@@ -24,9 +26,8 @@ public class JpaTest {
         redBook.setTitle("redBook");
         redBook.setRedMark("redMark");
         RedBook save = redBookRepository.saveAndFlush(redBook);
-        System.out.println(save.getId());
-        System.out.println(save.getTitle());
-        System.out.println(save.getRedMark());
+        Optional<RedBook> redBook1 = redBookRepository.findById(save.getId());
+        System.out.println(redBook1.get().getRedMark()+"\n"+redBook1.get().getTitle());
     }
 
     @Test

@@ -1,13 +1,14 @@
 package com.stone.springbootjpademo06.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
-@Entity(name = "book")
 @Data
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "color", discriminatorType = DiscriminatorType.STRING)
+@ToString
+@Entity(name = "book")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
