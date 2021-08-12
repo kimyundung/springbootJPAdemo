@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @ToString
 @Entity(name = "book")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

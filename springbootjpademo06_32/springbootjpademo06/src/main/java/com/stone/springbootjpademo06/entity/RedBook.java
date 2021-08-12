@@ -12,7 +12,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @ToString
 @Entity
 @EqualsAndHashCode(callSuper = false)
-@PrimaryKeyJoinColumn(name = "book_id", referencedColumnName = "id")
 public class RedBook extends Book{
     private String redMark;
 }
