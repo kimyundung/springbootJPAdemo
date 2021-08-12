@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/springbootdemo2/springbootdemo2.iml" filepath="$PROJECT_DIR$/springbootdemo2/springbootdemo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/springbootjpademo/springbootjpademo.iml" filepath="$PROJECT_DIR$/springbootjpademo/springbootjpademo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springbootjpademo05/springbootjpademo05.iml" filepath="$PROJECT_DIR$/springbootjpademo05/springbootjpademo05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootjpademo06_32/springbootjpademo06/springbootjpademo06.iml" filepath="$PROJECT_DIR$/springbootjpademo06_32/springbootjpademo06/springbootjpademo06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootjpademo06_32/springbootjpademo06_32.iml" filepath="$PROJECT_DIR$/springbootjpademo06_32/springbootjpademo06_32.iml" />
     </modules>
   </component>
 </project>

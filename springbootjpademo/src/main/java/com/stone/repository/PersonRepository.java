@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 public interface PersonRepository extends JpaRepository<Person,Long> {
 
     //find
+
     //and 默认有忽略大小写功能
     List<Person> findByEmailAddressAndLastname(String emailAddress, String lastname);
 
@@ -37,6 +38,7 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
 
 
     //count delete remove
+
     //查询总数
     long countByLastname(String lastname);
 
@@ -48,6 +50,7 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
 
 
     //分页 排序
+
     //根据分页参数查询Person，返回一个带分页结果的Page对象（方法一）
     Page<Person> findByLastname(String lastname, Pageable pageable);
 
@@ -62,6 +65,7 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
 
 
     // First Top 限制查询结果
+
     Person findFirstByOrderByLastnameAsc();
 
     Person findTopByOrderByIdAsc();
@@ -79,6 +83,7 @@ public interface PersonRepository extends JpaRepository<Person,Long> {
 
 
     // List/Stream/Page/Slice  ->  test测试
+
     //自定义一个查询方法，返回Stream对象，并且有分页属性
     @Query("select p from Person p")
     Stream<Person> findAllByCustomQueryAndStream(Pageable pageable);
