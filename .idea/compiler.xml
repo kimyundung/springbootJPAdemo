@@ -7,12 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springbootjpademo" />
+        <module name="springbootjpademo07" />
+        <module name="springbootjpademo08" />
         <module name="springbootjpademo05" />
-        <module name="springbootdemo2" />
         <module name="springbootjpademo06" />
         <module name="springbootdemo1" />
         <module name="springbootjpademo06_32" />
+        <module name="springbootjpademo" />
+        <module name="springbootdemo2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,7 +24,11 @@
       <module name="springbootjpademo05" target="11" />
       <module name="springbootjpademo06" target="11" />
       <module name="springbootjpademo06_32" target="11" />
+      <module name="springbootjpademo07" target="11" />
+      <module name="springbootjpademo08" target="11" />
       <module name="wrapper" target="1.5" />
+      <module name="wrapper (1)" target="1.5" />
+      <module name="wrapper (2)" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -33,6 +39,8 @@
       <module name="springbootjpademo05" options="-parameters" />
       <module name="springbootjpademo06" options="-parameters" />
       <module name="springbootjpademo06_32" options="-parameters" />
+      <module name="springbootjpademo07" options="-parameters" />
+      <module name="springbootjpademo08" options="-parameters" />
     </option>
   </component>
 </project>
