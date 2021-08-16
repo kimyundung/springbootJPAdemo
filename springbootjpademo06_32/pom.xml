@@ -18,6 +18,7 @@
 		<module>springbootjpademo07</module>
 		<module>springbootjpademo08</module>
 		<module>springbootjpademo09</module>
+		<module>springbootjpademo10</module>
 	</modules>
 	<properties>
 		<java.version>11</java.version>
