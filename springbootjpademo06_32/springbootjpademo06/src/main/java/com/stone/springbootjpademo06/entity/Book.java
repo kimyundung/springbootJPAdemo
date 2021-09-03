@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @ToString
-@Entity(name = "books")
+@Entity(name = "book")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Book {
     @Id
